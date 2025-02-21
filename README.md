@@ -1,4 +1,6 @@
-rodar o projeto ```docker compose up``` depois ```docker exec -it app php artisan migrate```
+para rodar o projeto:
+alterar arquivo `.env.example` para `.env` então:
+```docker compose up``` e ```docker exec -it app php artisan migrate```
 
 vai estar disponivel no: http://localhost:9000
 
