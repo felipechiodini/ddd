@@ -21,7 +21,9 @@ class UseCase
             TrasanctionTypeFactory::create($input->paymentType)
         );
 
-        $account->withdrawal($transaction);
+        $valueToWithdraw = $transaction->amount + $transaction->tax();
+
+        $account->withdrawal($valueToWithdraw);
 
         $this->atomicityExecution->execute(function() use (&$account, &$transaction) {
             $this->transactionRepository->store($account->id, $transaction);

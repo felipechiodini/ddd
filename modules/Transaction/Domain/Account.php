@@ -10,14 +10,12 @@ class Account
     {
     }
 
-    public function withdrawal(Transaction $transaction)
+    public function withdrawal(int|float $value)
     {
-        $valueToWithdraw = $transaction->amount + $transaction->tax();
-
-        if ($this->balance < $valueToWithdraw) {
+        if ($this->balance < $value) {
             throw new InsuficientFounds('Saldo insuficiente');
         }
 
-        $this->balance = $this->balance - $valueToWithdraw;
+        $this->balance = $this->balance - $value;
     }
 }
