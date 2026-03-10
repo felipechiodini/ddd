@@ -7,6 +7,9 @@ use Objective\Account\Domain\Account;
 
 class AccountRepository implements \Objective\Account\Domain\AccountRepository
 {
+    /**
+     * @deprecated
+     */
     public function loadAccount(int $accountNumber): Account
     {
         $model = DB::table('accounts')
